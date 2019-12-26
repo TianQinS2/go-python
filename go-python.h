@@ -62,6 +62,9 @@ _gopy_malloc_PyMethodDefArray(size_t n);
 void
 _gopy_set_PyMethodDef(PyMethodDef *array, int i, PyMethodDef *o);
 
+void 
+_gopy_set_PyMethodDefNew(PyMethodDef *array, int i, const char *name, const void *func, int flag, const char *doc);
+
 /* --- none --- */
 
 PyObject*

@@ -154,12 +154,23 @@ _gopy_InitModule3(const char* nm, PyMethodDef* methods, const char *doc) {
 
 PyMethodDef*
 _gopy_malloc_PyMethodDefArray(size_t n) {
-    return (PyMethodDef*)malloc(n * sizeof(PyMethodDef));
+	PyMethodDef* array = (PyMethodDef*)malloc(n * sizeof(PyMethodDef));
+	memset(array, 0, sizeof(n * sizeof(PyMethodDef)));
+	return array;
 }
 
 void
 _gopy_set_PyMethodDef(PyMethodDef *array, int i, PyMethodDef *o) {
     array[i] = *o;
+}
+
+void 
+_gopy_set_PyMethodDefNew(PyMethodDef *array, int i, const char *name, const void *func, int flag, const char *doc) {
+	PyMethodDef meth = array[i];
+	meth.ml_name = name;
+	meth.ml_meth = (PyCFunction)func;
+	meth.ml_flags = flag;
+	meth.ml_doc = doc;
 }
 
 /* --- none --- */
