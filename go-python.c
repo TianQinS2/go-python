@@ -166,11 +166,11 @@ _gopy_set_PyMethodDef(PyMethodDef *array, int i, PyMethodDef *o) {
 
 void 
 _gopy_set_PyMethodDefNew(PyMethodDef *array, int i, const char *name, const void *func, int flag, const char *doc) {
-	PyMethodDef meth = array[i];
-	meth.ml_name = name;
-	meth.ml_meth = (PyCFunction)func;
-	meth.ml_flags = flag;
-	meth.ml_doc = doc;
+	PyMethodDef *meth = &array[i];
+	meth->ml_name = name;
+	meth->ml_meth = (PyCFunction)func;
+	meth->ml_flags = flag;
+	meth->ml_doc = doc;
 }
 
 /* --- none --- */
