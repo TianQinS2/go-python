@@ -246,4 +246,8 @@ _gopy_PyImport_ImportModuleEx(char *name, PyObject *globals, PyObject *locals, P
 int
 _gopy_PyRun_SimpleString(const char *command);
 
+/* --- for ParsePy --- */
+const char*
+_gopy_PyType(PyObject *ob);
+
 #endif /* !GOPYTHON_GOPYTHON_H */

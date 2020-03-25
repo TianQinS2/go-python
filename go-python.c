@@ -468,3 +468,10 @@ int
 _gopy_PyRun_SimpleString(const char *command) {
 	return PyRun_SimpleString(command);
 }
+
+/* --- for ParsePy --- */
+const char*
+_gopy_PyType(PyObject *ob) {
+	// struct _typeobject *ob_type = ob->ob_type;
+	return ob->ob_type->tp_name;
+}

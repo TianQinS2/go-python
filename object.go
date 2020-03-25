@@ -483,4 +483,12 @@ func (self *PyObject) Type() *PyObject {
 	return togo(C.PyObject_Type(topy(self)))
 }
 
+// Return the typeobject's tp_name.
+func (self *PyObject) TypeString() string {
+	if self == nil {
+		return "NoneType"
+	}
+	return C.GoString(C._gopy_PyType(topy(self)))
+}
+
 // EOF
