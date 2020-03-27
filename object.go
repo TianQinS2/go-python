@@ -484,6 +484,7 @@ func (self *PyObject) Type() *PyObject {
 }
 
 // Return the typeobject's tp_name.
+// when o is non-NULL, returns Py_None's tp_name.
 func (self *PyObject) TypeString() string {
 	if self == nil {
 		return "NoneType"
